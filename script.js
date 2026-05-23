@@ -273,7 +273,7 @@ loginLink.addEventListener('click', async (e) => {
     if (currentUser) {
         await signOut(auth);
     } else {
-        window.location.href = '/auth.html';
+        window.location.href = './auth.html';
     }
 });
 
