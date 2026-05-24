@@ -312,6 +312,14 @@ h1 {
     .notification-container {
         top: 70px !important;
     }
+
+    .send-btn, .message, .chat-input input{
+        font-size: 1.1rem;
+    }
+
+    .chat-input{
+        height: 2rem;
+    }
 }
 
 .notification-container {
