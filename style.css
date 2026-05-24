@@ -184,6 +184,7 @@ h1 {
     outline: none;
     color: #ececf1;
     font-size: 1.6rem;
+    min-width: 0;
 }
 
 .chat-input input::placeholder {
@@ -197,6 +198,7 @@ h1 {
     font-size: 1.6rem;
     cursor: pointer;
     transition: 0.2s;
+    flex-shrink: 0;
 }
 
 .send-btn:hover {
