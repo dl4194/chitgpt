@@ -85,7 +85,7 @@ async function loadSessions() {
 
                 item.appendChild(nameSpan);
                 item.appendChild(deleteBtn);
-                item.addEventListener("click", () => openSession(session.id, session.name));
+                item.addEventListener("click", () => openSession(session.id));
 
                 sessionsList.appendChild(item);
             });
@@ -107,7 +107,7 @@ async function openSession(sessionId) {
     closeSidebar();
 
     await loadChatHistory(sessionId);
-    loadSessions();
+    await loadSessions();
 }
 
 async function loadChatHistory(sessionId) {
@@ -222,12 +222,10 @@ async function sendMessage() {
 
 function updateBadge() {
     if (currentUser) {
-        badge.style.display = 'flex';
         const displayName = currentUser.displayName || currentUser.email.split('@')[0];
         badgeText.textContent = `logged in as ${displayName}`;
         loginLink.textContent = 'Log Out';
     } else {
-        badge.style.display = 'flex';
         badgeText.textContent = 'Not logged in';
         loginLink.textContent = 'Log In';
     }

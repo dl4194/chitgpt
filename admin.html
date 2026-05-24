@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ChitshitGPT</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ChitshitGPT ADMIN</title>
+    <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="notification.css">
-    <script type="module" src="script.js" defer></script>
+    <script type="module" src="admin.js" defer></script>
 
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
@@ -19,33 +19,25 @@
     <div class="main-container">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h2>Chats</h2>
-                <button class="toggle-sidebar" id="toggleSidebar">close</button>
+                <h2>Users</h2>
             </div>
-            <button class="new-chat-btn" id="newChatBtn">New Chat</button>
+            <div class="sessions-list" id="usersList"></div>
+
+            <div class="sidebar-header">
+                <h2>Chats</h2>
+            </div>
             <div class="sessions-list" id="sessionsList"></div>
+
             <div id="authBadge" class="auth-badge">
                 <span id="badgeText">Not logged in</span>
                 <a id="loginLink" href="auth.html" class="login-link">Log In</a>
             </div>
         </aside>
-        <button class="sidebar-toggle" id="sidebarToggle">menu</button>
 
         <div class="app">
-            <h1>ChitshitGPT<span class="redbold">BETA</span></h1>
+            <h1>ChitshitGPT<span class="redbold">ADMIN</span></h1>
 
             <div class="chat-box" id="chatBox"></div>
-
-            <div class="chat-input-wrapper">
-                <div class="chat-input">
-                    <input
-                        type="text"
-                        placeholder="type here"
-                        id="messageInput"
-                    />
-                    <button class="send-btn" id="sendBtn">send</button>
-                </div>
-            </div>
         </div>
     </div>
 </body>
