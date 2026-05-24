@@ -42,7 +42,7 @@ body {
 }
 
 .sidebar-header h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
 }
 
@@ -81,7 +81,7 @@ body {
     border-radius: 8px;
     color: #ececf1;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 16px;
     transition: 0.2s;
 }
@@ -245,12 +245,12 @@ h1 {
 .auth-badge {
     background: #40414f;
     padding: 8px 12px;
-    font-size: 0.875rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 8px;
     color: #ececf1;
-    width: 100%;
+    margin: 0 -16px -16px -16px;
     z-index: 5000;
 }
 
