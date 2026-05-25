@@ -237,11 +237,13 @@ h1 {
 .user {
     align-self: flex-end;
     color: #ffffff;
+    text-align: right;
 }
 
 .assistant {
     align-self: flex-start;
     color: #a7a7a7;
+    text-align: left;
 }
 
 .auth-badge {
