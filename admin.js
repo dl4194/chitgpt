@@ -151,6 +151,17 @@ function updateBadge() {
     }
 }
 
+function closeSidebar() {
+    sidebar.classList.remove("open");
+}
+
+function toggleSidebar() {
+    sidebar.classList.toggle("open");
+}
+
+sidebarToggle.addEventListener("click", toggleSidebar);
+toggleSidebarBtn.addEventListener("click", closeSidebar);
+
 onAuthStateChanged(auth, async (user) => {
     currentUser = user;
     updateBadge();
