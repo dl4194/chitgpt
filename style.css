@@ -276,7 +276,7 @@ h1 {
     color: #ffffff;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .main-container {
         margin-left: 0;
     }
@@ -310,7 +310,8 @@ h1 {
     }
 
     .message {
-        max-width: 85%;
+        max-width: unset;
+        width: 100%;
     }
 
     .send-btn, .message, .chat-input input{
@@ -319,6 +320,10 @@ h1 {
 
     .chat-input{
         height: 2rem;
+    }
+
+    .chat-box{
+        width: 100%;
     }
 }
 
