@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import md from "./render.js";
 
 const auth = getAuth(app);
 const chatBox = document.getElementById("chatBox");
@@ -26,7 +27,7 @@ let currentSessionId = null;
 function addMessage(text, sender) {
     const message = document.createElement("div");
     message.classList.add("message", sender);
-    message.textContent = text;
+    message.innerHTML = md.render(text);
     chatBox.appendChild(message);
     window.scrollTo(0, document.body.scrollHeight);
     return message;
