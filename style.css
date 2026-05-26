@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -155,8 +155,7 @@ body {
 h1 {
     font-size: 3.8rem;
     font-weight: 600;
-    margin-bottom: 50px;
-    color: #FFFFFF;
+    /* margin-bottom: 50px; */
 }
 
 .chat-input-wrapper {
@@ -236,13 +235,13 @@ h1 {
 
 .user {
     align-self: flex-end;
-    color: #ffffff;
+    color: #ffffff !important;
     text-align: right;
 }
 
 .assistant {
     align-self: flex-start;
-    color: #a7a7a7;
+    color: #a7a7a7 !important;
     text-align: left;
 }
 
@@ -330,4 +329,19 @@ h1 {
 .redbold{
     color: #FF0000;
     font-style: italic;
+}
+
+.message pre {
+    overflow-x: auto;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.message code {
+    font-family: monospace;
+}
+
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
 }

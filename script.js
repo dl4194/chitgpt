@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import md from "./render.js";
 
 const auth = getAuth(app);
 const input = document.getElementById("messageInput");
@@ -28,7 +29,7 @@ let abortController = null;
 function addMessage(text, sender) {
     const message = document.createElement("div");
     message.classList.add("message", sender);
-    message.textContent = text;
+    message.innerHTML = md.render(text);
     chatBox.appendChild(message);
     window.scrollTo(0, document.body.scrollHeight);
     return message;
@@ -155,18 +156,37 @@ async function deleteSession(sessionId) {
 }
 
 async function streamChat(prompt, element, signal) {
-    if (!currentUser || !currentSessionId) throw new Error('Not authenticated');
-    const token = await currentUser.getIdToken();
+    if (!currentUser || !currentSessionId) {
+        throw new Error('Not authenticated');
+    }
 
-    await apiService.streamChat(token, currentSessionId, prompt, (data) => {
-        if (data.done || data.stopped) {
-            return;
-        }
-        if (data.token) {
-            element.textContent += data.token;
-            window.scrollTo(0, document.body.scrollHeight);
-        }
-    }, signal);
+    const token = await currentUser.getIdToken();
+    let textBuffer = "";
+    let queued = false;
+
+    await apiService.streamChat(
+        token,
+        currentSessionId,
+        prompt,
+        (data) => {
+            if (data.done || data.stopped) {
+                return;
+            }
+            if (data.token) {
+                textBuffer += data.token;
+                if (!queued) {
+                    queued = true;
+
+                    requestAnimationFrame(() => {
+                        element.innerHTML = md.render(textBuffer);
+                        window.scrollTo(0, document.body.scrollHeight);
+                        queued = false;
+                    });
+                }
+            }
+        },
+        signal
+    );
 }
 
 async function sendMessage() {
